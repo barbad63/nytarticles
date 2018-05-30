@@ -14,7 +14,9 @@ app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use("/api", apiRoutes);
 app.use("/api", articles);
-
+app.get('/', function(request, response) {
+  response.send('Hello World!');
+  });
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
 
